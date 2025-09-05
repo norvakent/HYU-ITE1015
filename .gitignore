@@ -5,3 +5,4 @@
 test.c
 .cache
 .vscode
+.DS_Store
