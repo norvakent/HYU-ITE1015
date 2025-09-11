@@ -13,12 +13,14 @@ void print_map(char arr[][5]) {
 }
 
 void flip(char (*arr)[5], int y, int x) {
-  for (int i = 0; i < 3 && y + i <= 5; i++) {
-    for (int j = 0; j < 3 && x + j <= 5; j++) {
-      if (arr[y + i - 1][x + j - 1] == 'O') {
-        arr[y + i - 1][x + j - 1] = 'X';
-      } else {
-        arr[y + i - 1][x + j - 1] = 'O';
+  for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+      if (x + j > 0 && x + j <= 5 && y + i > 0 && y + j <= 5) {
+        if (arr[y + i - 1][x + j - 1] == 'O') {
+          arr[y + i - 1][x + j - 1] = 'X';
+        } else {
+          arr[y + i - 1][x + j - 1] = 'O';
+        }
       }
     }
   }
