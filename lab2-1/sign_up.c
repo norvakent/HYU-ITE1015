@@ -30,5 +30,5 @@ int main() {
       printf("PW check fail\n");
   }
   printf("PW check success\n");
-  printf("your email is cassandra@hanyang.ac.kr\n");
+  printf("your email is %s@hanyang.ac.kr\n", id);
 }
