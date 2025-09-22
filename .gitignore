@@ -2,7 +2,7 @@
 !*.*
 !*/
 
-test.c
+.testfiles
 .cache
 .vscode
 .DS_Store
