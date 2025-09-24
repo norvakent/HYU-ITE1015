@@ -14,7 +14,7 @@ struct Employee {
 
 Employee *findEmployeeById(Employee employees[], int size, int targetId) {
   for (int i = 0; i < size; i++) {
-    if (employees[i].id == targetId) return employees + i * sizeof(Employee);
+    if (employees[i].id == targetId) return employees + i;
   }
   return nullptr;
 }
