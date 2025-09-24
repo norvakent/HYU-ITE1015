@@ -2,6 +2,7 @@
 !*.*
 !*/
 
+test.c
 .testfiles
 .cache
 .vscode
