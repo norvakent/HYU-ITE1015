@@ -55,7 +55,7 @@ int main() {
 					break;
 				}
 				int diff = calc.diffDays(a, b);
-				cout << "DIFF" << diff << endl;
+				cout << "DIFF: " << diff << endl;
 				break;
 				}
 			case 2: {

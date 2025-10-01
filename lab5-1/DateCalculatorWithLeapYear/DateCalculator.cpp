@@ -17,10 +17,8 @@ static const int cumMonth[13] = {
 };
 
 bool DateCalculator::isLeap(int y) const {
-	if (y % 400 == 0) {
-		if (y % 100 == 0) return false;
-		return true;
-	}
+	if (y % 400 == 0) return true;
+	if (y % 100 == 0) return false;
 	if (y % 4 == 0) return true;
 	return false;
 }
@@ -32,7 +30,7 @@ int DateCalculator::daysInMonth(int y, int m) const {
 
 	if (isLeap(y) && m == 2) return 29;
 
-	return md[m];
+	return md[m - 1];
 }
 
 bool DateCalculator::isValid(const Date& d) const {
@@ -66,7 +64,7 @@ int DateCalculator::toSerial(const Date& date) const {
 	
 	int daysMonths = cumMonth[m] + ((isLeap(y) && m > 2) ? 1 : 0);
 	
-	return daysYears + daysMonths + d;
+	return daysYears + daysMonths + d - 1;
 }
 
 Date DateCalculator::fromSerial(int days) const {
@@ -91,7 +89,7 @@ Date DateCalculator::fromSerial(int days) const {
 	if (singleYears == 4) singleYears = 3;
 	remaining -= singleYears * D1;
 
-	int year = 400 * cycles400 + 100 * cycles100 + 4 * cycles4 + singleYears;
+	int year = 1601 + 400 * cycles400 + 100 * cycles100 + 4 * cycles4 + singleYears;
 
 	int month = 1;
 	while (true) {
@@ -140,17 +138,17 @@ bool DateCalculator::nthWeekdayInMonth(int y, int m, int weekday, int n, Date& o
 
 	int dim = daysInMonth(y, m);
 	Date first(y, m, 1);
-	if (isValid(first)) return false;
+	if (!isValid(first)) return false;
 
 	int firstDow = dayOfWeek(first);
 
 	int delta = weekday - firstDow;
 
-	int firstOccur = 1 + delta + (delta < 0) ? 7 : 0;
+	int firstOccur = 1 + delta + ((delta < 0) ? 7 : 0);
 
 	int target = firstOccur + 7 * (n - 1);
 
-	if (target > daysInMonth(y, m)) return false;
+	if (target > dim) return false;
 
 	out = Date(y, m, target);
 	return true;
