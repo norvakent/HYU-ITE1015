@@ -3,6 +3,7 @@
 !*/
 *.o
 
+*.zip
 !Makefile
 
 test.c
