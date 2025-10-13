@@ -63,7 +63,7 @@ void Locker::close() {
   is_open = false;
   cout << "The locker is now closed." << endl;
 }
- 
+
 void Locker::check_item() {
   bool empty = true;
   cout << "========================" << endl;
@@ -98,7 +98,7 @@ void Locker::place_item() {
 
 void Locker::remove_item() {
   string item;
-  
+
   cout << "Item : ";
   cin >> item;
 
@@ -112,7 +112,4 @@ void Locker::remove_item() {
   cout << "There is no " << item << " in the locker." << endl;
 }
 
-bool Locker::get_is_open() {
-  return this->is_open;
-}
-
+bool Locker::get_is_open() { return this->is_open; }
