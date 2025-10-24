@@ -53,7 +53,6 @@ int main() {
               << "): " << sensors[i]->readData() << std::endl;
     delete sensors[i];
   }
-  delete[] sensors;
 
   return 0;
 }
