@@ -10,21 +10,18 @@ public:
 
 class TemperatureSensor : public Sensor {
 public:
-  TemperatureSensor() {}
   double readData() override { return 25.5; }
   std::string getType() override { return "Temperature"; }
 };
 
 class HumiditySensor : public Sensor {
 public:
-  HumiditySensor() {}
   double readData() override { return 60.0; }
   std::string getType() override { return "Humidity"; }
 };
 
 class PressureSensor : public Sensor {
 public:
-  PressureSensor() {}
   double readData() override { return 1013.25; }
   std::string getType() override { return "Pressure"; }
 };
@@ -56,4 +53,7 @@ int main() {
               << "): " << sensors[i]->readData() << std::endl;
     delete sensors[i];
   }
+  delete[] sensors;
+
+  return 0;
 }
